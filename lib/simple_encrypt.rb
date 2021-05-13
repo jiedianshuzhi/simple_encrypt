@@ -3,7 +3,6 @@
 require_relative "simple_encrypt/version"
 
 module SimpleEncrypt
-  class Error < StandardError; end
   RULE = ['F', 'T', 'X', 'K', 'L', 'E', 'R', 'B', 'G', 'J']
 
   def self.encrypt data
@@ -13,5 +12,7 @@ module SimpleEncrypt
   def self.decrypt data
     data.to_s.upcase.split('').map{|f| RULE.index(f) || '!'}.join('')
   end
+
+  class Error < StandardError; end
 
 end
